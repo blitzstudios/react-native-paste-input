@@ -58,22 +58,6 @@ android {
     sourceCompatibility JavaVersion.VERSION_1_8
     targetCompatibility JavaVersion.VERSION_1_8
   }
-
-  sourceSets {
-    main {
-      java.srcDirs += [
-        "generated/java",
-        "generated/jni"
-      ]
-    }
-  }
-
-  externalNativeBuild {
-    cmake {
-        path file('generated/jni/CMakeLists.txt')
-        version '3.22.1'
-    }
-  }
 }
 
 def kotlin_version = getExtOrDefault("kotlinVersion")
@@ -90,5 +74,5 @@ dependencies {
 react {
   jsRootDir = file("../src/")
   libraryName = "react-native-paste-input"
-  codegenJavaPackageName = "com.mattermost.pastetextinput"
+  codegenJavaPackageName = "com.mattermost.pasteinputtext"
 }
