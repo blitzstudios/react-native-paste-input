@@ -134,7 +134,6 @@
     },
     "android": {
       "javaPackageName": "com.mattermost.pastetextinput"
-    },
-    "includesGeneratedCode": true
+    }
   }
 }
