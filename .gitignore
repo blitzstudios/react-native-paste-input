@@ -41,6 +41,7 @@ android/generated
 # Cocoapods
 #
 example/ios/Pods
+ios/generated
 
 # node.js
 #
