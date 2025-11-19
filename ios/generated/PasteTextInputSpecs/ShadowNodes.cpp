@@ -49,7 +49,7 @@ AttributedStringBox PasteTextInputShadowNode::attributedStringBoxToMeasure(
     // of T67606511
     auto string = !placeholder.empty()
         ? placeholder
-        : BaseTextShadowNode::getEmptyPlaceholder();
+        : "\u00A0"; // Non-breaking space placeholder for empty text
     auto textAttributes = getConcreteProps().getEffectiveTextAttributes(
         layoutContext.fontSizeMultiplier);
     attributedString.appendFragment({string, textAttributes, {}});

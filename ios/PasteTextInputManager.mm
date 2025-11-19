@@ -25,19 +25,23 @@
 @end
 #endif
 
-@implementation PasteTextInputManager {
+@implementation PasteTextInputManager
+#ifndef RCT_NEW_ARCH_ENABLED
+{
     NSHashTable<RCTBaseTextInputShadowView *> *_shadowViews;
 }
 
 RCT_EXPORT_MODULE(PasteTextInput)
+#endif
 
+#ifndef RCT_NEW_ARCH_ENABLED
 RCT_EXPORT_VIEW_PROPERTY(disableCopyPaste, BOOL)
 RCT_EXPORT_VIEW_PROPERTY(smartPunctuation, NSString)
-
 RCT_EXPORT_VIEW_PROPERTY(onPaste, RCTBubblingEventBlock)
+#endif
 
 #pragma mark - Unified <PasteTextInput> properties
-#ifdef RCT_NEW_ARCH_ENABLED
+#ifndef RCT_NEW_ARCH_ENABLED
 RCT_REMAP_VIEW_PROPERTY(autoCapitalize, backedTextInputView.autocapitalizationType, UITextAutocapitalizationType)
 RCT_REMAP_VIEW_PROPERTY(autoCorrect, backedTextInputView.autocorrectionType, UITextAutocorrectionType)
 RCT_REMAP_VIEW_PROPERTY(contextMenuHidden, backedTextInputView.contextMenuHidden, BOOL)
@@ -65,11 +69,6 @@ RCT_EXPORT_VIEW_PROPERTY(selection, RCTTextSelection)
 RCT_EXPORT_VIEW_PROPERTY(inputAccessoryViewID, NSString)
 RCT_EXPORT_VIEW_PROPERTY(textContentType, NSString)
 RCT_EXPORT_VIEW_PROPERTY(passwordRules, NSString)
-
-RCT_EXPORT_VIEW_PROPERTY(onChange, RCTBubblingEventBlock)
-RCT_EXPORT_VIEW_PROPERTY(onSelectionChange, RCTDirectEventBlock)
-RCT_EXPORT_VIEW_PROPERTY(onScroll, RCTDirectEventBlock)
-
 RCT_EXPORT_VIEW_PROPERTY(mostRecentEventCount, NSInteger)
 
 RCT_EXPORT_SHADOW_PROPERTY(text, NSString)
@@ -162,7 +161,7 @@ RCT_EXPORT_METHOD(setTextAndSelection
     [self.bridge.uiManager setNeedsLayout];
   });
 }
-#else
+
 - (UIView *)view
 {
   return [[PasteInputView alloc] initWithBridge:self.bridge];

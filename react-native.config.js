@@ -7,6 +7,7 @@ module.exports = {
             android: {
                 sourceDir: './android',
                 cmakeListsPath: 'generated/jni/CMakeLists.txt',
+                componentDescriptors: ['PasteTextInputComponentDescriptor'],
             },
         },
     },

@@ -719,7 +719,7 @@ std::int32_t convertNSDictionaryValueToStdInt(NSDictionary *dictionary, NSString
 }
 @end
 
-Class<RCTComponentViewProtocol> PasteTextInputCls(void)
+Class<RCTComponentViewProtocol> PasteTextInputCls(void) __attribute__((used))
 {
   return PasteTextInput.class;
 }
