@@ -361,6 +361,7 @@ folly::dynamic PasteTextInputProps::getDynamic() const {
     return props;
 }
 
+#ifdef RN_SERIALIZABLE_STATE
 ComponentName PasteTextInputProps::getDiffPropsImplementationTarget() const {
     return "TextInput";
 }
@@ -636,5 +637,6 @@ folly::dynamic PasteTextInputProps::getDiffProps(
 
     return result;
 }
+#endif
 
 } // namespace facebook::react

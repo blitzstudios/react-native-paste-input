@@ -64,7 +64,8 @@ namespace facebook::react {
             }
 
             return std::make_shared<PasteTextInputShadowNode::ConcreteState>(
-                    std::make_shared<const TextInputState>(TextInputState({}, {}, {}, 0)),
+                    std::make_shared<const PasteTextInputState>(
+                            PasteTextInputState({}, {}, {}, 0)),
                     family);
         }
 

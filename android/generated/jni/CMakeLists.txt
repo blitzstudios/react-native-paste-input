@@ -16,6 +16,12 @@ add_library(
 
 target_include_directories(react_codegen_PasteTextInputSpecs PUBLIC . react/renderer/components/PasteTextInputSpecs)
 
+target_compile_definitions(
+  react_codegen_PasteTextInputSpecs
+  PRIVATE
+  RN_SERIALIZABLE_STATE
+)
+
 target_link_libraries(
   react_codegen_PasteTextInputSpecs
   fbjni

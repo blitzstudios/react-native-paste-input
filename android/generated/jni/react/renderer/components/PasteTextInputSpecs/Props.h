@@ -137,7 +137,7 @@ public:
     SharedDebugStringConvertibleList getDebugProps() const override;
 #endif
 
-    ComponentName getDiffPropsImplementationTarget() const;
+    ComponentName getDiffPropsImplementationTarget() const override;
     folly::dynamic getDiffProps(const Props* prevProps) const override;
 };
 

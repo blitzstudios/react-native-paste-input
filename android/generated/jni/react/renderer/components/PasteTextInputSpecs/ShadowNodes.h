@@ -16,7 +16,7 @@
 #include <jsi/jsi.h>
 
 #include <react/renderer/attributedstring/AttributedString.h>
-#include <react/renderer/components/textinput/TextInputState.h>
+#include <react/renderer/components/androidtextinput/AndroidTextInputState.h>
 #include <react/renderer/components/view/ConcreteViewShadowNode.h>
 #include <react/utils/ContextContainer.h>
 
@@ -25,6 +25,9 @@ namespace facebook::react {
 
 JSI_EXPORT extern const char PasteTextInputComponentName[];
 
+// Android codegen: use AndroidTextInputState (has cachedAttributedStringId and MapBuffer serialization).
+using PasteTextInputState = AndroidTextInputState;
+
 /*
  * `ShadowNode` for <PasteTextInput> component.
  */
@@ -32,7 +35,7 @@ class PasteTextInputShadowNode final : public ConcreteViewShadowNode<
     PasteTextInputComponentName,
     PasteTextInputProps,
     PasteTextInputEventEmitter,
-    TextInputState> {
+    PasteTextInputState> {
 public:
     using ConcreteViewShadowNode::ConcreteViewShadowNode;
 

@@ -38,6 +38,7 @@ void PasteTextInputShadowNode::setTextLayoutManager(
                 .pointScaleFactor = layoutContext.pointScaleFactor,
         };
 
+#ifdef ANDROID
         if (getStateData().cachedAttributedStringId != 0) {
             auto textSize = textLayoutManager_
                     ->measureCachedSpannableById(
@@ -48,6 +49,7 @@ void PasteTextInputShadowNode::setTextLayoutManager(
                     .size;
             return layoutConstraints.clamp(textSize);
         }
+#endif
 
         // Layout is called right after measure.
         // Measure is marked as `const`, and `layout` is not; so State can be
@@ -157,7 +159,7 @@ void PasteTextInputShadowNode::updateStateIfNeeded(
                          : props.mostRecentEventCount;
     auto newAttributedString = getMostRecentAttributedString(layoutContext);
 
-    setStateData(TextInputState{
+    setStateData(PasteTextInputState{
             AttributedStringBox(newAttributedString),
             reactTreeAttributedString,
             props.paragraphAttributes,
@@ -232,7 +234,7 @@ AttributedString PasteTextInputShadowNode::getMostRecentAttributedString(
         AttributedString attributedString;
         auto placeholderString = !props.placeholder.empty()
                                  ? props.placeholder
-                                 : BaseTextShadowNode::getEmptyPlaceholder();
+                                 : std::string("\xE2\x80\x8B"); // U+200B zero-width space
         auto textAttributes = TextAttributes::defaultTextAttributes();
         textAttributes.fontSizeMultiplier = layoutContext.fontSizeMultiplier;
         textAttributes.apply(props.textAttributes);
