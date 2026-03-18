@@ -6,6 +6,8 @@
 //  Copyright © 2020 Facebook. All rights reserved.
 //
 
+#ifndef RCT_NEW_ARCH_ENABLED
+
 #import "PasteInputView.h"
 #import "PasteInputTextView.h"
 #import <React/RCTUtils.h>
@@ -94,3 +96,5 @@
 }
 
 @end
+
+#endif

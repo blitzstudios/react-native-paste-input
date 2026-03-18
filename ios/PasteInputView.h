@@ -6,6 +6,8 @@
 //  Copyright © 2020 Facebook. All rights reserved.
 //
 
+#ifndef RCT_NEW_ARCH_ENABLED
+
 #import <React/RCTMultilineTextInputView.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -16,3 +18,5 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+
+#endif

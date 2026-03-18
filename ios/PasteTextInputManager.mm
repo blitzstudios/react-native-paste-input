@@ -12,12 +12,12 @@
 #import <React/RCTShadowView.h>
 
 #import "PasteTextInput.h"
-#import "PasteInputView.h"
 
 #ifdef RCT_NEW_ARCH_ENABLED
 @interface PasteTextInputManager : RCTViewManager
 @end
 #else
+#import "PasteInputView.h"
 #import <React/RCTMultilineTextInputViewManager.h>
 
 @interface PasteTextInputManager : RCTMultilineTextInputViewManager
